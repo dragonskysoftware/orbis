@@ -138,7 +138,8 @@ void Game::displaySplash() {
 		uwait(50); //wait 50/1000 of a second
 	}
 
-	uwait(1500); //wait 1.5 seconds
+	//allow the user to view the logo
+	uwait(2500); //wait 2.5 seconds
 
 	//fade out the splash screen
 	while(alpha > 0x00) { //loop while the alpha value isn't zero
