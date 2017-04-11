@@ -3,7 +3,7 @@
  * Implements an exception that is thrown when an object enters an invalid operational state
  * Created by Andrew Davis
  * Created on 4/9/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //include header

@@ -3,7 +3,7 @@
  * Declares a static class that runs the Orbis game
  * Created by Andrew Davis
  * Created on 4/9/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //disallow reinclusion

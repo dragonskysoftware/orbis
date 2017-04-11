@@ -3,7 +3,7 @@
  * Defines inline functions that support Orbis
  * Created by Andrew Davis
  * Created on 4/9/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //disallow reinclusion

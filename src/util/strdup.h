@@ -3,7 +3,7 @@
  * Declares a function that duplicates character strings
  * Created by Andrew Davis
  * Created on 4/9/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //disallow reinclusion

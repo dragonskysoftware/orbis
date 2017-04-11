@@ -3,7 +3,7 @@
  * Implements a singleton class that holds the important game data for Orbis
  * Created by Andrew Davis
  * Created on 4/9/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //include header
