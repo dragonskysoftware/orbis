@@ -30,7 +30,7 @@ bool Game::start() {
 	bool success = true; //init success flag
 
 	//start initialization
-	if(SDL_Init(SDL_INIT_VIDEO) < 0) { //if preliminary initialization fails
+	if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) { //if preliminary initialization fails
 		std::cerr << "SDL could not initialize! Error: " << SDL_GetError() << std::endl; //display an error message
 		success = false; //and reset the success flag
 	} else {
@@ -59,6 +59,12 @@ bool Game::start() {
 	//Initialize SDL_ttf
 	if( TTF_Init() == -1 ) {	
 		std::cerr << "Could not initialize SDL_TTF. Error: " << TTF_GetError() << std::endl;			
+		success = false;
+	}
+
+	//Initialize SDL_mixer
+	if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 ) {						                  
+		std::cerr << "SDL_mixer could not initialize! SDL_mixer Error: " << Mix_GetError() << std::endl;
 		success = false;
 	}
 
