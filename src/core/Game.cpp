@@ -68,6 +68,14 @@ bool Game::start() {
 		success = false;
 	}
 
+	//finish initializing SDL_mixer
+	int mixflags = MIX_INIT_OGG; //the flags that denote format support
+	int result = Mix_Init(mixflags); //call the init function for the mixer and get the result
+	if((result & mixflags) != mixflags) { //if the initialization failed
+		std::cerr << "Failed to initialize ogg support. Error: " << Mix_GetError() << std::endl; //then show an error msg
+		success = false; //and reset the success flag
+	}
+
 	return success; //return the success flag
 
 }
@@ -117,6 +125,9 @@ void Game::shutdown() {
 	//quit IMG
 	IMG_Quit();
 
+	//quit Mix
+	Mix_Quit();
+
 	//Quit SDL
 	SDL_Quit();
 }
@@ -126,6 +137,13 @@ void Game::displaySplash() {
 	if(splash == nullptr) { //if the splash is not initialized
 		return; //then exit the method
 	}
+
+	//create the sound effect
+	SoundEffect* intro = new SoundEffect("../assets/Intro.ogg"); //load the sound effect from a file
+
+	//play the sound effect
+	intro->play(); //call SoundEffect::play()
+
 	//draw a black screen
 	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xff); //set the draw color to black
 	SDL_RenderClear(renderer); //fill the screen with black
@@ -161,6 +179,10 @@ void Game::displaySplash() {
 	//draw a black screen
 	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xff); //set the draw color to black
 	SDL_RenderClear(renderer); //fill the screen with black
+
+	//and deallocate the sound effect
+	delete intro; //deallocate the sound effect object
+	intro = nullptr; //and zero it out
 }
 	
 //end of implementation

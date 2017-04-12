@@ -17,6 +17,7 @@
 #include "../component/TextComponent.h"
 #include "../util/constants.h"
 #include "../util/functions.h"
+#include "../audio/SoundEffect.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
