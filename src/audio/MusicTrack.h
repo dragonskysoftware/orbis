@@ -12,7 +12,9 @@
 
 //includes
 #include <string>
-#include <SDL/SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
+#include <iostream>
+#include "../except/InvalidSoundException.h"
 
 //class declaration
 class MusicTrack final {
