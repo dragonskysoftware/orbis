@@ -82,9 +82,9 @@ bool Game::start() {
 
 //run method - runs the game
 void Game::run() {
-	message = new TextComponent(SCREEN_WIDTH / 7, SCREEN_HEIGHT / 2, std::string(DEV_MSG), "../assets/MainFont.TTF", 28, 0, 0, 0, renderer); 
-	image = new ImgComponent(0, 0, "../assets/test.png", renderer);
-	splash = new ImgComponent(0, 0, "../assets/Splash.png", renderer);
+	message = new TextComponent(SCREEN_WIDTH / 7, SCREEN_HEIGHT / 2, std::string(DEV_MSG), "../assets/fonts/MainFont.TTF", 28, 0, 0, 0, renderer); 
+	image = new ImgComponent(0, 0, "../assets/images/test.png", renderer);
+	splash = new ImgComponent(0, 0, "../assets/images/Splash.png", renderer);
 	displaySplash(); //display the splash image
 	//start the loop
 	while(true) { //loop forever, or until a quit event is detected by the event regulator
@@ -139,7 +139,7 @@ void Game::displaySplash() {
 	}
 
 	//create the sound effect
-	SoundEffect* intro = new SoundEffect("../assets/Intro.ogg"); //load the sound effect from a file
+	SoundEffect* intro = new SoundEffect("../assets/sounds/Intro.ogg"); //load the sound effect from a file
 
 	//play the sound effect
 	intro->play(); //call SoundEffect::play()
