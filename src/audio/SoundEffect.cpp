@@ -14,6 +14,10 @@ SoundEffect::SoundEffect(const char* trackName)
 	: effect(nullptr), name(trackName) //init the fields
 {
 	this->effect = Mix_LoadWAV(trackName); //load the effect from the filename
+	if(!this->effect) { //if there was an error
+		throw InvalidSoundException(trackName, Mix_GetError()); //then throw an exception
+	}
+
 }
 
 //constructor 2 - constructs from a std::string
