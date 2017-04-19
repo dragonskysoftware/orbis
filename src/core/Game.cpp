@@ -16,8 +16,7 @@ SDL_Window* Game::window = nullptr; //initialize the window to nullptr
 SDL_Renderer* Game::renderer = nullptr; //initialize the renderer to nullptr
 
 //then the game variables
-TextComponent* Game::message = nullptr; //initialize the message to nullptr
-ImgComponent* Game::image = nullptr; //initialize the image to nullptr
+ImgComponent* Game::title = nullptr; //initialize the title screen to nullptr
 ImgComponent* Game::splash = nullptr; //initialize the splash to nullptr
 
 //end of variable initializations
@@ -82,9 +81,8 @@ bool Game::start() {
 
 //run method - runs the game
 void Game::run() {
-	message = new TextComponent(SCREEN_WIDTH / 7, SCREEN_HEIGHT / 2, std::string(DEV_MSG), "../assets/fonts/MainFont.TTF", 28, 0, 0, 0, renderer); 
-	image = new ImgComponent(0, 0, "../assets/images/test.png", renderer);
-	splash = new ImgComponent(0, 0, "../assets/images/Splash.png", renderer);
+	splash = new ImgComponent(0, 0, "../assets/images/Splash.png", renderer); //init the splash image
+	title = new ImgComponent(0, 0, "../assets/images/title.png", renderer); //init the title image
 	displaySplash(); //display the splash image
 	//start the loop
 	while(true) { //loop forever, or until a quit event is detected by the event regulator
@@ -92,8 +90,7 @@ void Game::run() {
 		//draw a blank screen
 		SDL_SetRenderDrawColor(renderer, 0xff, 0xff, 0xff, 0xff); //set the draw color to white
 		SDL_RenderClear(renderer); //fill the screen with white
-		message->render(); //render the message
-		image->render(); //render the image
+		displayTitle(); //display the title image
 		SDL_RenderPresent(renderer); //update the draw screen
 		if(GameDB::getInstance().getInt(OP_KEY) == SHUTDOWN) { //if a shutdown event was detected
 			break; //then exit the loop
@@ -104,10 +101,8 @@ void Game::run() {
 
 //shutdown method - shuts down the game
 void Game::shutdown() {
-	delete message; //deallocate the message field
-	message = nullptr; //and zero it out
-	delete image; //deallocate the image field
-	image = nullptr; //and zero it out
+	delete title; //deallocate the title field
+	title = nullptr; //and zero it out
 	delete splash; //deallocate the splash field
 	splash = nullptr; //and zero it out
 
@@ -199,4 +194,10 @@ void Game::displaySplash() {
 	intro = nullptr; //and zero it out
 }
 	
+//displayTitle method - displays the title screen
+void Game::displayTitle() {
+	//TODO: Add music code
+	title->render(); //render the title screen
+}
+
 //end of implementation

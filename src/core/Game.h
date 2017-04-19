@@ -53,14 +53,14 @@ class Game final {
 	private:
 		//methods
 		static void displaySplash(); //displays the splash image
+		static void displayTitle(); //displays the title screen
 
 		//SDL fields
 		static SDL_Window* window; //the window the game runs in
 		static SDL_Renderer* renderer; //the graphics renderer for the game
 
 		//game object fields
-		static TextComponent* message; //a temporary message displayed while the game is being developed
-		static ImgComponent* image; //an image used to test graphics rendering
+		static ImgComponent* title; //the title screen for the game
 		static ImgComponent* splash; //the splash image for the game
 
 };
