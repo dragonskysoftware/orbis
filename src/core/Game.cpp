@@ -132,6 +132,20 @@ void Game::shutdown() {
 	SDL_Quit();
 }
 
+//getter methods
+
+//getWindow method - returns the window field
+SDL_Window* Game::getWindow() {
+	return window; //return the window field
+}
+
+//getRenderer method - returns the renderer field
+SDL_Renderer* Game::getRenderer() {
+	return renderer; //return the renderer field
+}
+
+//other methods
+
 //displaySplash method - fades in the splash, waits a second, and fades it out
 void Game::displaySplash() {
 	if(splash == nullptr) { //if the splash is not initialized

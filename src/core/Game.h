@@ -40,6 +40,10 @@ class Game final {
 		Game& operator=(const Game& src) = delete;
 		Game& operator=(Game&& src) = delete;
 
+		//getter methods
+		static SDL_Window* getWindow(); //returns the game's window
+		static SDL_Renderer* getRenderer(); //returns the game's renderer
+
 		//other methods
 		static bool start(); //starts the game
 		static void run(); //runs the game
