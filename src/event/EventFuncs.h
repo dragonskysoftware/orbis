@@ -14,6 +14,7 @@
 #include "../gui/SimpleMsgBox.h"
 #include "../gui/GUIGateway.h"
 #include "../util/functions.h"
+#include "../audio/SoundEffect.h"
 
 //function prototypes
 void shutdown(); //shuts down the game
