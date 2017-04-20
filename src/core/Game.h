@@ -18,6 +18,8 @@
 #include "../util/constants.h"
 #include "../util/functions.h"
 #include "../audio/SoundEffect.h"
+#include "../event/EventFuncs.h"
+#include "../gui/ImageButton.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>

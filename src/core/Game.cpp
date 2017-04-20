@@ -83,14 +83,23 @@ bool Game::start() {
 void Game::run() {
 	splash = new ImgComponent(0, 0, "../assets/images/Splash.png", renderer); //init the splash image
 	title = new ImgComponent(0, 0, "../assets/images/title.png", renderer); //init the title image
+	ImgComponent startButtonImage(268, 379, "../assets/images/start_button.png", renderer); //init the start button image
+	ImgComponent quitButtonImage(268, 510, "../assets/images/quit_button.png", renderer); //init the quit button image
+	ImageButton startButton(startButtonImage, showGameNotMadeDialog); //init the start button
+	ImageButton quitButton(quitButtonImage, shutdown); //init the quit button 
 	displaySplash(); //display the splash image
 	//start the loop
 	while(true) { //loop forever, or until a quit event is detected by the event regulator
 		EventRegulator::getInstance().nextEvent(); //poll the next event
+		SDL_Event event = EventRegulator::getInstance().getLastEvent(); //get the last event
 		//draw a blank screen
 		SDL_SetRenderDrawColor(renderer, 0xff, 0xff, 0xff, 0xff); //set the draw color to white
 		SDL_RenderClear(renderer); //fill the screen with white
 		displayTitle(); //display the title image
+		startButton.render(); //render the start button
+		quitButton.render(); //render the quit button
+		startButton.processEvent(&event); //process the start button event
+		quitButton.processEvent(&event); //process the quit button event
 		SDL_RenderPresent(renderer); //update the draw screen
 		if(GameDB::getInstance().getInt(OP_KEY) == SHUTDOWN) { //if a shutdown event was detected
 			break; //then exit the loop
