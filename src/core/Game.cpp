@@ -83,8 +83,8 @@ bool Game::start() {
 void Game::run() {
 	splash = new ImgComponent(0, 0, "../assets/images/Splash.png", renderer); //init the splash image
 	title = new ImgComponent(0, 0, "../assets/images/title.png", renderer); //init the title image
-	ImgComponent startButtonImage(268, 379, "../assets/images/start_button.png", renderer); //init the start button image
-	ImgComponent quitButtonImage(268, 510, "../assets/images/quit_button.png", renderer); //init the quit button image
+	ImgComponent startButtonImage(318, 329, "../assets/images/start_button.png", renderer); //init the start button image
+	ImgComponent quitButtonImage(318, 460, "../assets/images/quit_button.png", renderer); //init the quit button image
 	ImageButton startButton(startButtonImage, showGameNotMadeDialog); //init the start button
 	ImageButton quitButton(quitButtonImage, shutdown); //init the quit button 
 	displaySplash(); //display the splash image
