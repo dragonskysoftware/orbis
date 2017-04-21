@@ -15,6 +15,7 @@
 #include <string>
 #include "../except/MessageBoxException.h" 
 #include "../core/Game.h"
+#include "../audio/SoundEffect.h"
 
 //class declaration
 class SimpleMsgBox final {

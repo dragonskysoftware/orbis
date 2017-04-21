@@ -72,7 +72,10 @@ const std::string& SoundEffect::getFileName() const {
 
 //play method - plays the sound effect
 void SoundEffect::play(int repeats) const {
-	Mix_PlayChannel(-1, this->effect, repeats); //play the sound effect
+	int channel = Mix_PlayChannel(-1, this->effect, repeats); //play the sound effect and return its outcome
+	if(channel == -1) { //if the playback failed
+		throw InvalidSoundException(this->name.c_str(), Mix_GetError()); //then throw an exception
+	}
 }
 
 //private free method - deallocates the object

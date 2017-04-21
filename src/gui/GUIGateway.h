@@ -12,6 +12,7 @@
 
 //includes
 #include "../audio/SoundEffect.h"
+#include "../util/functions.h"
 
 //class declaration
 class GUIGateway final {

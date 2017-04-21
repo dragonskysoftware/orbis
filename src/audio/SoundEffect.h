@@ -7,11 +7,12 @@
  */
 
 //disallow reinclusion
-#ifndef MUS_TRACK_H
-#define MUS_TRACK_H
+#ifndef SND_EFFECT_H
+#define SND_EFFECT_H
 
 //includes
 #include <string>
+#include <iostream>
 #include <SDL2/SDL_mixer.h>
 #include "../except/InvalidSoundException.h"
 

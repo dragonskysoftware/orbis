@@ -25,8 +25,11 @@ GUIGateway& GUIGateway::getInstance() {
 
 //playWarningTone method - plays a short warning tone
 void GUIGateway::playWarningTone() const {
-	SoundEffect warning("../assets/sounds/warning.ogg"); //create the sound effect
-	warning.play(); //and play it
+	SoundEffect* warning = new SoundEffect("../assets/sounds/warning.ogg"); //create the sound effect
+	warning->play(); //and play it
+	uwait(500); //delay 1/2 second
+	delete warning; //deallocate the sound effect
+	warning = nullptr; //and zero it out
 }
 
 //TODO: Add more methods
