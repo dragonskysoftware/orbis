@@ -71,7 +71,10 @@ const std::string& MusicTrack::getFileName() const {
 
 //play method - plays the track in a loop
 void MusicTrack::play() const {
-	Mix_PlayMusic(this->music, -1); //play the music in a loop
+	int result = Mix_PlayMusic(this->music, -1); //play the music in a loop and return the outcome
+	if(result == -1) { //if an error occured
+		throw InvalidSoundException(this->name.c_str(), Mix_GetError()); //then throw an exception
+	}
 }
 
 //stop method - stops playing the track
