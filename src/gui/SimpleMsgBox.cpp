@@ -58,8 +58,11 @@ SimpleMsgBox& SimpleMsgBox::operator=(SimpleMsgBox&& src) {
 //show method - displays the SimpleMsgBox and allows input
 void SimpleMsgBox::show() const {
 	//display the message box and test for errors
-	SoundEffect* warningTone = new SoundEffect("../assets/sounds/warning.ogg"); //get the warning tone effect
-	warningTone->play(); //play the warning tone
+	SoundEffect* warningTone = nullptr; //declare the warning tone sound effect
+	if(this->flags == SDL_MESSAGEBOX_WARNING) { // if the message box is a warning box
+		warningTone = new SoundEffect("../assets/sounds/warning.ogg"); //allocate the warning tone
+		warningTone->play(); //then play the warning tone
+	}
 	if(SDL_ShowSimpleMessageBox(this->flags, this->title.c_str(), this->message.c_str(), this->window) < 0) {
 		//if this point is reached, an error occured while displaying the message box.
 		//So, we throw a MessageBoxException, passing it the result of SDL_GetError().
